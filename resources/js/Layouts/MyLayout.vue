@@ -4,7 +4,7 @@
 
     const page = usePage()
 
-    const user = computed(() => page.props.user.name || 'Guest')
+    const user = computed(() => page.props.user[0].name || 'Guest')
     const tagline = computed(() => page.props.tagline)
 </script>
 

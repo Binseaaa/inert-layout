@@ -30,11 +30,9 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        $user = User::find(3);
+            $users = User::orderBy('id')->get();
             return [
-                'user' => [
-                    'name' => $user->name ?? 'Guest'
-                ],
+                'user' => $users,
                 'tagline' => 'Masarap Matulog Pag Gising'
             ];
     }
