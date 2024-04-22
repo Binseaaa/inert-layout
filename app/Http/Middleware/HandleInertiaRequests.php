@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -29,12 +30,12 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        return [
-            ...parent::share($request),
-            'auth' => [
-                'user' => $request->user(),
-            ],
-            'tagline' => 'Masarap Matulog Pag Gising'
-        ];
+        $user = User::find(3);
+            return [
+                'user' => [
+                    'name' => $user->name ?? 'Guest'
+                ],
+                'tagline' => 'Masarap Matulog Pag Gising'
+            ];
     }
 }

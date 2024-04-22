@@ -4,7 +4,8 @@
 
     const page = usePage()
 
-    const user = computed(() => page.props.tagline)
+    const user = computed(() => page.props.user.name || 'Guest')
+    const tagline = computed(() => page.props.tagline)
 </script>
 
 <template>
@@ -14,6 +15,7 @@
                 <img src="../../../public/coke.png" alt="">
             </div>
             <div class="py-4 text-italic text-red-600">{{ user }}</div>
+            <div class="py-4 text-italic text-red-600">{{ tagline }}</div>
             <nav class="flex flex-col gap-3 mt-4 w-full">
                 <Link href="/">Home</Link>
                 <Link href="/about">About</Link>
