@@ -14,12 +14,12 @@
             <div id="branding">
                 <img src="../../../public/coke.png" alt="">
             </div>
-            <div class="py-4 text-italic text-red-600">{{ user }}</div>
-            <div class="py-4 text-italic text-red-600">{{ tagline }}</div>
+            <div class="py-4 text-italic text-red-600"><span class="text-white">Welcome:</span> {{ user }}</div>
+            <!-- <div class="py-4 text-italic text-red-600">{{ tagline }}</div> -->
             <nav class="flex flex-col gap-3 mt-4 w-full">
-                <Link href="/">Home</Link>
-                <Link href="/about">About</Link>
-                <Link href="/products">Products</Link>
+                <Link href="/" :class="{'bg-red-600' : $page.component == 'Landing'}">Home</Link>
+                <Link href="/about" :class="{'bg-red-600' : $page.component == 'About'}">About</Link>
+                <Link href="/products" :class="{'bg-red-600' : $page.component == 'Products'}">Products</Link>
                 <Link href="/">Contact Us</Link>
             </nav>
         </div>
